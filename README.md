@@ -35,7 +35,7 @@
 <summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/JishuDeveloper/Rename-Bot-2GB">
+<a href="https://heroku.com/deploy?template=https://github.com/AutumnSide/Madflix-Itachi-MetaRen">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
