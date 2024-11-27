@@ -1,14 +1,15 @@
+from pyrogram import Client, filters
 from datetime import datetime
 from pytz import timezone
-from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from config import Config
 from aiohttp import web
 from route import web_server
 import pyromod
 
-class Bot(Client):
+from plugins.file_rename import start_worker
 
+class Bot(Client):
     def __init__(self):
         super().__init__(
             name="renamer",
@@ -22,6 +23,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
+        start_worker(self)
         me = await self.get_me()
         self.mention = me.mention
         self.username = me.username  
@@ -42,16 +44,10 @@ class Bot(Client):
                 time = curr.strftime('%I:%M:%S %p')
                 await self.send_message(Config.LOG_CHANNEL, f"**{me.mention} Is Restarted !!**\n\n📅 Date : `{date}`\n⏰ Time : `{time}`\n🌐 Timezone : `Asia/Kolkata`\n\n🉐 Version : `v{__version__} (Layer {layer})`</b>")                                
             except:
-                print("Please Make This Is Admin In Your Log Channel")
+                print("Please Make This Bot Admin In Your Log Channel")
 
-Bot().run()
+bot = Bot()
 
-
-
-
-
-
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @JishuBotz
-# Developer @JishuDeveloper
+if __name__ == "__main__":
+    bot.run()
+    
