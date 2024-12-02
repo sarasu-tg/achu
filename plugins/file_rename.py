@@ -26,7 +26,7 @@ async def process_file(client, message):
     file_path = os.path.join(user_download_path, f"processed_file{file_extension}")
     
     # Fetch caption and process it
-    caption = await jishubotz.get_caption(user_id) or "Here is your file!"
+    caption = await jishubotz.get_caption(user_id) or "**Here is your file!**"
     caption = caption.replace("{filename}", original_file_name)
     file_size = message.document.file_size
     caption = caption.replace("{filesize}", f"{file_size / (1024 * 1024):.2f} MB")
@@ -37,44 +37,50 @@ async def process_file(client, message):
     c_thumb = await jishubotz.get_thumbnail(user_id)
     if c_thumb:
         try:
+            print("[DEBUG] Downloading and processing thumbnail...")
             ph_path = await client.download_media(c_thumb)
             _, _, ph_path = await fix_thumb(ph_path)
+            print(f"[DEBUG] Thumbnail processed: {ph_path}")
         except Exception as e:
             print(f"[DEBUG] Error processing thumbnail: {e}")
-            return await message.reply(f"Error processing thumbnail: {e}")
+            await message.reply(f"Error processing thumbnail: {e}")
+            return
+    else:
+        print("[DEBUG] No custom thumbnail set by the user.")
 
     # Download the file
-    status_message = await message.reply("Download in progress...")
+    status_message = await message.reply("`Download in progress...`")
     try:
         await client.download_media(
             message=message,
             file_name=file_path,
             progress=progress_for_pyrogram,
-            progress_args=("Download in progress...", status_message, time.time())
+            progress_args=("`Download in progress...`", status_message, time.time())
         )
     except Exception as e:
         await status_message.edit(f"Error during download: {e}")
         return
 
     # Upload to both user and channel
-    await status_message.edit("Uploading file...")
+    await status_message.edit("`Uploading file...`")
     try:
+        # Send file to user and channel
         await asyncio.gather(
             client.send_document(
                 message.chat.id,
                 document=file_path,
                 caption=caption,
                 file_name=original_file_name,
-                thumb=ph_path,
+                thumb=ph_path if ph_path else None,  # Ensure thumbnail consistency
                 progress=progress_for_pyrogram,
-                progress_args=("Upload in progress...", status_message, time.time())
+                progress_args=("`Upload in progress...`", status_message, time.time())
             ),
             client.send_document(
                 chat_id=CHANNEL_ID,
                 document=file_path,
                 caption=caption,
                 file_name=original_file_name,
-                thumb=ph_path,
+                thumb=ph_path if ph_path else None,  # Ensure thumbnail consistency
             )
         )
     except Exception as e:
@@ -87,30 +93,5 @@ async def process_file(client, message):
         if ph_path and os.path.exists(ph_path):
             os.remove(ph_path)
         await status_message.delete()
-            
 
-@Client.on_message(filters.private & (filters.document | filters.video | filters.audio))
-async def enqueue_file(client, message):
-    """Add file to the queue."""
-    print(f"[DEBUG] File added to queue by user: {message.from_user.id}")
-    await file_queue.put(message)
-    
-async def worker(client):
-    """Worker function to process files sequentially."""
-    print("[DEBUG] Worker started.")
-    while True:
-        print("[DEBUG] Waiting for a file in the queue...")
-        message = await file_queue.get()
-        try:
-            print(f"[DEBUG] File dequeued for processing: {message.chat.id}")
-            await process_file(client, message)
-        except Exception as e:
-            print(f"[DEBUG] Error in worker: {e}")
-        finally:
-            file_queue.task_done()
-            print("[DEBUG] Worker finished processing a file.")
-
-def start_worker(client):
-    """Initialize the worker task."""
-    asyncio.create_task(worker(client))
-    print("[DEBUG] Worker loop initialized.")
+    print(f"[DEBUG] File processing completed for user {user_id}")
