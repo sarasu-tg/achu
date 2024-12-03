@@ -7,7 +7,7 @@ id_pattern = re.compile(r'^\d+$')
 
 class Config(object):
     # Pyrogram client config
-    API_ID = os.environ.get("API_ID", "22980696"")
+    API_ID = os.environ.get("API_ID", "22980696")
     API_HASH = os.environ.get("API_HASH", "2b653cb53821a82097efaba6732f5d75")
     
     # Fixing BOT_TOKENS extraction from environment
