@@ -20,12 +20,12 @@ class Config(object):
     # Other configs
     BOT_UPTIME = time.time()
     GLOBAL_THUMBNAIL_URL = os.environ.get("GLOBAL_THUMBNAIL_URL", "https://envs.sh/CFm.jpg")
-    START_PIC = os.environ.get("START_PIC", "")
+    START_PIC = os.environ.get("START_PIC", "https://envs.sh/CFm.jpg")
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '1892771262').split()]
 
     # Channels logs
     FORCE_SUB = os.environ.get("FORCE_SUB", "")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002345447637))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002345447637"))
 
     # Webhook response configuration     
     WEBHOOK = bool(int(os.environ.get("WEBHOOK", True)))
