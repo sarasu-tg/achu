@@ -14,7 +14,7 @@ class Config(object):
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "7421263728:AAGVeMyCLHeX053qbhsopwiRG-hhwNFPAzc")
 
     # Database config
-    DB_NAME = os.environ.get("DB_NAME", "test")
+    DB_NAME = os.environ.get("DB_NAME", "Cluster0")
     DB_URL = os.environ.get("DB_URL", "mongodb+srv://mn:mn@cluster0.5f6cr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
     # Other configs
@@ -25,7 +25,7 @@ class Config(object):
 
     # Channels logs
     FORCE_SUB = os.environ.get("FORCE_SUB", "")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002345447637"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002345447637))
 
     # Webhook response configuration     
     WEBHOOK = bool(int(os.environ.get("WEBHOOK", True)))
