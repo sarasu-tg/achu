@@ -7,11 +7,11 @@ id_pattern = re.compile(r'^\d+$')
 
 class Config(object):
     # Pyrogram client config
-    API_ID = os.environ.get("API_ID", "20581507")
-    API_HASH = os.environ.get("API_HASH", "60ee9616e45c8a8a429fd8390b53fe74")
+    API_ID = os.environ.get("API_ID", "22980696"")
+    API_HASH = os.environ.get("API_HASH", "2b653cb53821a82097efaba6732f5d75")
     
     # Fixing BOT_TOKENS extraction from environment
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7035835268:AAHZfWaCKiAR81QjN1U-hKtBpP11Pk3midE")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7421263728:AAGVeMyCLHeX053qbhsopwiRG-hhwNFPAzc")
 
     # Database config
     DB_NAME = os.environ.get("DB_NAME", "test")
@@ -21,11 +21,11 @@ class Config(object):
     BOT_UPTIME = time.time()
     GLOBAL_THUMBNAIL_URL = os.environ.get("GLOBAL_THUMBNAIL_URL", "https://i.postimg.cc/8kqBJw2c/IMG-20241127-191745-333.jpg")
     START_PIC = os.environ.get("START_PIC", "")
-    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '2126131508').split()]
+    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '1892771262').split()]
 
     # Channels logs
     FORCE_SUB = os.environ.get("FORCE_SUB", "")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002130121487"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002345447637"))
 
     # Webhook response configuration     
     WEBHOOK = bool(int(os.environ.get("WEBHOOK", True)))
