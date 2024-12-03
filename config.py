@@ -19,7 +19,7 @@ class Config(object):
 
     # Other configs
     BOT_UPTIME = time.time()
-    GLOBAL_THUMBNAIL_URL = os.environ.get("GLOBAL_THUMBNAIL_URL", "https://i.postimg.cc/qqM8XBQh/IMG-20241201-234737.jpg")
+    GLOBAL_THUMBNAIL_URL = os.environ.get("GLOBAL_THUMBNAIL_URL", "https://i.postimg.cc/8kqBJw2c/IMG-20241127-191745-333.jpg")
     START_PIC = os.environ.get("START_PIC", "")
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '2126131508').split()]
 
