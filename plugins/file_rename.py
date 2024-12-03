@@ -11,7 +11,7 @@ BASE_DOWNLOAD_PATH = "downloads"
 file_queue = asyncio.Queue()
 
 # Your channel ID (replace with your actual channel ID)
-CHANNEL_ID = "-1001957130711"
+CHANNEL_ID = "-1002490892111"
 
 def create_user_download_path(user_id):
     path = os.path.join(BASE_DOWNLOAD_PATH, str(user_id))
