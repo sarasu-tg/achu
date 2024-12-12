@@ -8,20 +8,8 @@ from config import Config, Txt
 
 @Client.on_message(filters.private & filters.command("start"))
 async def start(client, message):
-    user = message.from_user
-    await jishubotz.add_user(client, message)                
-    button = InlineKeyboardMarkup([
-        [InlineKeyboardButton('🔊 Updates', url='https://t.me/Madflix_Bots'),
-        InlineKeyboardButton('♻️ Sᴜᴩᴩᴏʀᴛ', url='https://t.me/MadflixBots_Support')],
-        [InlineKeyboardButton('❤️‍🩹 About', callback_data='about'),
-        InlineKeyboardButton('🛠️ Help', callback_data='help')],
-        [InlineKeyboardButton("👨‍💻 Developer", url='https://t.me/CallAdminRobot')]
-    ])
-    if Config.START_PIC:
-        await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
-    else:
-        await message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
-   
+    await message.reply_text("only for @mrmntg")
+
 
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
