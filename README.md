@@ -1,7 +1,6 @@
-<img src="https://graph.org/file/77d2eddf9657a87acb881.jpg" alt="logo" target="/blank">
 
 <h1 align="center">
- <b><a href="https://t.me/itachi_rename_bot" target="/blank"> Rename Bot 2GB </a></>
+ Rename Bot 2GB 
 </h1>
 
 <p align="center">🩵 Thanks for Being Here 🩵</p>
@@ -18,27 +17,6 @@
 * `DB_NAME`  - Your database name from mongoDB. `Optional`
 * `FORCE_SUB` - Your force sub channel username without @ `Optional`
 * `START_PIC` - Start message photo. `Optional`
-
-
-
-### DEPLOYEMENT SUPPORT
-
-<summary>Deploy To Koyeb</summary>
-<p>
-<br>                 
-<a target="/blank" href="https://app.koyeb.com/deploy?type=git&repository=github.com/JishuDeveloper/Rename-Bot-2GB&branch=main&name=rename-bot-2gb" >
-  <img src="https://www.koyeb.com/static/images/deploy/button.svg" alt="Deploy">
-</a>
-</p>
-
-
-<summary>Deploy To Heroku</summary>
-<p>
-<br>
-<a href="https://heroku.com/deploy?template=https://github.com/AutumnSide/Madflix-Itachi-MetaRen">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
-</p>
 
 
 
@@ -83,20 +61,3 @@ status - Check bot status [FOR ADMINS USE ONLY].
 
 
 
-### ❤️ RESPECTING ❤️
-- [JishuDeveloper](https://github.com/JishuDeveloper)
-- [Madflix Official](https://github.com/jishusinha) 
-- [lntechnical](https://github.com/lntechnical2)
-
-### 😍 BOTS CHANNEL 😍
-- [Madflix Botz](https://t.me/Madflix_Bots)
-- [Jishu Botz](https://t.me/JishuBotz)
-
-### 💕 CONTACT DEVELOPER 💕
-- [Jishu Developer](https://t.me/JishuDeveloper)
-- [Madflix Official](https://t.me/MadflixOfficials)
-
-### ☕ BUY ME A COFFEE ☕
-- [PayPal](https://paypal.me/jishudeveloper/2.50USD)
-- [PhonePe](https://graph.org/file/6822df5af3a2e80637172.jpg)
-- [UPI](https://graph.org/file/b831109be4acff5c966d2.jpg)
