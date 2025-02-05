@@ -102,7 +102,7 @@ async def process_file(client, message):
 
     print(f"[DEBUG] File processing completed for user {user_id}")
 
-@Client.on_message(filters.private & (filters.document | filters.video | filters.audio))
+@Client.on_message(filters.private & filters.media)
 async def enqueue_file(client, message):
     """Add file to the queue."""
     print(f"[DEBUG] File added to queue by user: {message.from_user.id}")
