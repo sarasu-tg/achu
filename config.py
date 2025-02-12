@@ -11,7 +11,7 @@ class Config(object):
     API_HASH = os.environ.get("API_HASH", "2b653cb53821a82097efaba6732f5d75")
     
     # Fixing BOT_TOKENS extraction from environment
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7421263728:AAGVeMyCLHeX053qbhsopwiRG-hhwNFPAzc")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7633441501:AAG_9lTk_vnTtraLFIMkJGKNV88yFMNfwPU")
 
     # Database config
     DB_NAME = os.environ.get("DB_NAME", "Cluster0")
