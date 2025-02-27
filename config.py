@@ -20,7 +20,7 @@ class Config(object):
     # Other configs
     BOT_UPTIME = time.time()
     GLOBAL_THUMBNAIL_URL = os.environ.get("GLOBAL_THUMBNAIL_URL", "https://envs.sh/CFm.jpg")
-    START_PIC = os.environ.get("START_PIC", "https://envs.sh/CFm.jpg")
+    START_PIC = os.environ.get("START_PIC", "https://i.ibb.co/MDwd1f3D/6087047735061627461.jpg")
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '1892771262').split()]
 
     # Channels logs
