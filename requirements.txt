@@ -1,4 +1,4 @@
-pyrotgfork
+pyrotgfork==pari
 TgCrypto
 motor
 dnspython
